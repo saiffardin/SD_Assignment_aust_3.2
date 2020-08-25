@@ -140,6 +140,7 @@
             this.btn_reset.TabIndex = 4;
             this.btn_reset.Text = "Reset";
             this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
             // textBox_output
             // 
