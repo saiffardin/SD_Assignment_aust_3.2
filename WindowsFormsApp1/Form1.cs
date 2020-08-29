@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,10 +29,21 @@ namespace WindowsFormsApp1
 
             var inputStr = textBox_input.Text;
 
+            Regex regex = new Regex(@"^-?[0-9]\d*(\.\d+)?$");
+            Match match = regex.Match(inputStr);
+
+            
             /* checks if input is empty*/
             if (String.IsNullOrEmpty(inputStr))
             {
                 MessageBox.Show("input is empty");
+                return;
+            }
+
+
+            if (!(match.Success))
+            {
+                MessageBox.Show("Enter a valid value.");
                 return;
             }
 
@@ -108,6 +120,16 @@ namespace WindowsFormsApp1
             radioBtn_celToKel.Checked = false;
             radioBtn_kelToCel.Checked = false;
             radioBtn_farToCel.Checked = false;
+
+        }
+
+        private void textBox_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }
